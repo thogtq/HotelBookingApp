@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Hotel Booking App</string>
+    <string name="home">Home</string>
+    <string name="calendar">Calendar</string>
+    <string name="account">Account</string>
+    <string name="setting">Setting</string>
+    <string name="tab_sap_toi">Sắp tới</string>
+    <string name="tab_hoan_tat">Hoàn tất</string>
+    <string name="tab_da_huy">Đã hủy</string>
+    <string name="tab_calendar_hoan_tat">Tab hoàn tất</string>
+    <string name="tab_calendar_sap_toi">Tab sắp tới</string>
+    <string name="tab_calendar_da_huy">Tab đã hủy</string>
+</resources>
