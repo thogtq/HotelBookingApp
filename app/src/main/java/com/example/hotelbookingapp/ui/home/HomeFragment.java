@@ -47,18 +47,18 @@ public class HomeFragment extends Fragment {
 
         ImageView imageView2= new ImageView(getContext());
         imageView2.setImageResource(R.drawable.ad_02);
-        imageView2.setScaleType(ImageView.ScaleType.FIT_XY);
+        //imageView2.setScaleType(ImageView.ScaleType.FIT_XY);
         viewFlipper.addView(imageView2);
 
         ImageView imageView3 = new ImageView(getContext());
         imageView3.setImageResource(R.drawable.ad_03);
-        imageView3.setScaleType(ImageView.ScaleType.FIT_XY);
+        //imageView3.setScaleType(ImageView.ScaleType.FIT_XY);
         viewFlipper.addView(imageView3);
 
-        ImageView imageView4 = new ImageView(getContext());
-        imageView4.setImageResource(R.drawable.ad_04);
-        imageView4.setScaleType(ImageView.ScaleType.FIT_XY);
-        viewFlipper.addView(imageView4);
+        //ImageView imageView4 = new ImageView(getContext());
+        //imageView4.setImageResource(R.drawable.ad_04);
+        //imageView4.setScaleType(ImageView.ScaleType.FIT_XY);
+        //viewFlipper.addView(imageView4);
 
         viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
