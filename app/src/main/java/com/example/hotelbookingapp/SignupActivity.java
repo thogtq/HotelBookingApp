@@ -19,8 +19,8 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent activity_login=new Intent(SignupActivity.this, SigninActivity.class);
-                activity_login.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-                //startActivity(activity_login);
+                //activity_login.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+                startActivity(activity_login);
                 finishAffinity();
             }
         });
