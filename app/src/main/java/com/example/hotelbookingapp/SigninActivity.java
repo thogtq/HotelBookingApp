@@ -3,17 +3,24 @@ package com.example.hotelbookingapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.hotelbookingapp.asynctask.Signin;
+
+import java.util.HashMap;
 
 public class SigninActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-
+         final EditText etUsername = (EditText)findViewById(R.id.editTextUsername);
+         final EditText etPassword = (EditText)findViewById(R.id.editTextPassword);
         TextView forgetPasswordText = (TextView) findViewById(R.id.forgetPassword);
         forgetPasswordText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +46,9 @@ public class SigninActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent homeFragment =new Intent(SigninActivity.this, MainActivity.class);
-                startActivity(homeFragment);
-                finishAffinity();
+                Signin signin = new Signin(SigninActivity.this);
+                signin.execute(etUsername.getText().toString(),etPassword.getText().toString());
+                //finishAffinity();
             }
         });
     }
