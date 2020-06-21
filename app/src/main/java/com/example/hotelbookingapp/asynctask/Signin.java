@@ -1,6 +1,7 @@
 package com.example.hotelbookingapp.asynctask;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,13 +10,10 @@ import android.widget.EditText;
 
 import com.example.hotelbookingapp.MainActivity;
 import com.example.hotelbookingapp.Server;
-import com.example.hotelbookingapp.SigninActivity;
-import com.example.hotelbookingapp.SignupActivity;
 
-import android.view.View;
+
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -65,6 +63,7 @@ public class Signin extends AsyncTask<String,Long,Void> {
             Toast.makeText(this.context,"Đăng nhập thành công !",Toast.LENGTH_LONG).show();
             Intent homeFragment =new Intent(this.context, MainActivity.class);
             this.context.startActivity(homeFragment);
+            ((Activity)this.context).finishAffinity();
         }else if(this.result == 0) {
             Toast.makeText(this.context,"Sai tên đăng nhập hoặc mật khẩu !",Toast.LENGTH_LONG).show();
             this.etUsername.setText("");
