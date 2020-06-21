@@ -76,7 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_signup_username"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_email"
             app:layout_constraintVertical_bias="0.091" />
 
         <EditText
@@ -105,7 +105,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.43"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_signup_conf_password"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.787" />
 
         <ImageView
@@ -121,7 +121,7 @@
             app:srcCompat="@drawable/line" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/et_signup_phone"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:background="@drawable/signup_your_name"
@@ -133,11 +133,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_signup_conf_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_username"
             app:layout_constraintVertical_bias="0.042" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/et_signup_email"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:background="@drawable/signup_your_name"
@@ -149,7 +149,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_phone"
             app:layout_constraintVertical_bias="0.076" />
     </android.support.constraint.ConstraintLayout>
 
