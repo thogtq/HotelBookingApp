@@ -46,7 +46,7 @@ public class SigninActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Signin signin = new Signin(SigninActivity.this);
+                Signin signin = new Signin(SigninActivity.this,etUsername,etPassword);
                 signin.execute(etUsername.getText().toString(),etPassword.getText().toString());
                 //finishAffinity();
             }

@@ -19,7 +19,7 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 final public class Server {
-    public static String UserToken = "";
+    public static String userToken = "";
     public static final String ServerName = "http://192.168.1.2/";
     public static final String Login = ServerName+"api.php/?apicall=login";
     public static final String Register = ServerName+"api.php/?apicall=register";
@@ -56,9 +56,6 @@ class RequestHandler {
                 }
                 br.close();
                 conn.disconnect();
-            }else {
-                conn.disconnect();
-                return "HTTP_ERROR";
             }
         } catch (Exception e) {
             e.printStackTrace();

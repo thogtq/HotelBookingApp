@@ -23,10 +23,15 @@ import java.util.HashMap;
 public class Signin extends AsyncTask<String,Long,Void> {
     @SuppressLint("StaticFieldLeak")
     private Context context,base;
-    private boolean result;
-    public Signin(Context context){
+    private int result;
+    @SuppressLint("StaticFieldLeak")
+    private EditText etUsername,etPassword;
+
+    public Signin(Context context,EditText etUsername,EditText etPassword){
+        this.etUsername = etUsername;
+        this.etPassword = etPassword;
         this.context = context;
-        this.result = false;
+        this.result = 0;
     }
     @Override
     protected Void doInBackground(String... params) {
@@ -35,11 +40,17 @@ public class Signin extends AsyncTask<String,Long,Void> {
             data.put("username",params[0]);
             data.put("password",params[1]);
             // private EditText etUsername;
-            JSONObject arrRes = new JSONObject(Server.sendHttpRequest(Server.Login, data, "POST"));
-            if(arrRes.getString("status").equals("true")){
-                this.result=true;
+            String resString = Server.sendHttpRequest(Server.Login, data, "POST");
+            if(resString.equals("")){
+                this.result = -1;
             }else{
-                this.result = false;
+                JSONObject arrRes = new JSONObject(resString);
+                if(arrRes.getString("status").equals("true") && !arrRes.getString("token").equals("") ){
+                    this.result = 1;
+                    Server.userToken = arrRes.getString("token");
+                }else{
+                    this.result = 0;
+                }
             }
         }catch (Exception e){
 
@@ -50,14 +61,18 @@ public class Signin extends AsyncTask<String,Long,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        if(this.result){
+        if(this.result == 1){
             Toast.makeText(this.context,"Đăng nhập thành công !",Toast.LENGTH_LONG).show();
             Intent homeFragment =new Intent(this.context, MainActivity.class);
             this.context.startActivity(homeFragment);
-        }else {
+        }else if(this.result == 0) {
             Toast.makeText(this.context,"Sai tên đăng nhập hoặc mật khẩu !",Toast.LENGTH_LONG).show();
-           try{ Thread.sleep(1000);}catch (Exception e){}
-            this.context.startActivity(new Intent(this.context,SigninActivity.class));
+            this.etUsername.setText("");
+            this.etPassword.setText("");
+        }else{
+            Toast.makeText(this.context,"Lỗi kết nối !",Toast.LENGTH_LONG).show();
+            this.etUsername.setText("");
+            this.etPassword.setText("");
         }
     }
 }
