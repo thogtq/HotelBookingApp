@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.742">
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/et_signup_hoten"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:background="@drawable/signup_your_name"
@@ -48,7 +48,7 @@
             app:layout_constraintVertical_bias="0.153" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/et_signup_username"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:layout_marginTop="30dp"
@@ -61,11 +61,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_hoten"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/et_signup_password"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:layout_marginTop="30dp"
@@ -78,11 +78,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText4"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_username"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/et_signup_conf_password"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:layout_marginTop="30dp"
@@ -95,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText5"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_password"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
@@ -108,7 +108,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText6"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_conf_password"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
