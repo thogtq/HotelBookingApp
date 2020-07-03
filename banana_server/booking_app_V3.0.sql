@@ -1,7 +1,159 @@
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     5/27/2020 11:57:47 PM                        */
+/*==============================================================*/
+
+
+drop table if exists DAT_PHONG;
+drop table if exists CT_PHONG;
+drop table if exists DANH_GIA;
+drop table if exists NGUOI_DUNG;
+drop table if exists PHONG;
+drop table if exists CO_SO_PHONG;
+drop table if exists KHACH_SAN;
+drop table if exists THANH_PHO;
+
+/*==============================================================*/
+/* Table: CO_SO_PHONG                                           */
+/*==============================================================*/
+create table CO_SO_PHONG
+(
+   TEN_CO_SO            varchar(256),
+   MA_CO_SO             varchar(12) not null,
+   primary key (MA_CO_SO)
+);
+
+/*==============================================================*/
+/* Table: CT_PHONG                                              */
+/*==============================================================*/
+create table CT_PHONG
+(
+   MA_PHONG             varchar(12) not null,
+   MA_CO_SO             varchar(12) not null,
+   DON_VI               char(12),
+   primary key (MA_PHONG, MA_CO_SO)
+);
+
+/*==============================================================*/
+/* Table: DANH_GIA                                              */
+/*==============================================================*/
+create table DANH_GIA
+(
+   MA_NGUOI_DUNG        int not null,
+   MA_KHACH_SAN         varchar(12) not null,
+   SO_DIEM              float(3),
+   NOI_DUNG             varchar(128),
+   primary key (MA_NGUOI_DUNG, MA_KHACH_SAN)
+);
+
+/*==============================================================*/
+/* Table: DAT_PHONG                                             */
+/*==============================================================*/
+create table DAT_PHONG
+(
+   NGAY_DAT             datetime,
+   NGAY_DEN             date,
+   NGAY_DI              date,
+   TONG_TIEN            int,
+   TINH_TRANG           varchar(24),
+   IS_REVIEW            int,
+   MA_DAT_PHONG         varchar(12) not null,
+   MA_NGUOI_DUNG        int not null,
+   MA_PHONG             varchar(12),
+   primary key (MA_DAT_PHONG)
+);
+
+/*==============================================================*/
+/* Table: KHACH_SAN                                             */
+/*==============================================================*/
+create table KHACH_SAN
+(
+   MA_KHACH_SAN         varchar(12) not null,
+   MA_THANH_PHO         varchar(12),
+   TEN_KS               varchar(64),
+   DIA_CHI              varchar(256),
+   SDT                  varchar(14),
+   MO_TA                text,
+   GHI_CHU              text,
+   SO_SAO               int,
+   DIEM_DANH_GIA        float(3),
+   CHINH_SACH           text,
+   primary key (MA_KHACH_SAN)
+);
+
+/*==============================================================*/
+/* Table: NGUOI_DUNG                                            */
+/*==============================================================*/
+create table NGUOI_DUNG
+(
+   USERNAME             varchar(24),
+   PASSWORD             varchar(256),
+   HO_TEN               varchar(64),
+   SDT                  varchar(14),
+   DIA_CHI              varchar(256),
+   NGAY_SINH            date,
+   CMND                 varchar(14),
+   EMAIL                varchar(256),
+   MA_NGUOI_DUNG        int not null AUTO_INCREMENT,
+   TOKEN				varchar(128) unique,
+   primary key (MA_NGUOI_DUNG)
+);
+
+/*==============================================================*/
+/* Table: PHONG                                                 */
+/*==============================================================*/
+create table PHONG
+(
+   TEN_PHONG            varchar(64),
+   GIA_PHONG            int,
+   DIEN_TICH            float(3),
+   SUC_CHUA             int,
+   LOAI_GIUONG          varchar(64),
+   MA_PHONG             varchar(12) not null,
+   MA_KHACH_SAN         varchar(12),
+   primary key (MA_PHONG)
+);
+
+/*==============================================================*/
+/* Table: THANH_PHO                                             */
+/*==============================================================*/
+create table THANH_PHO
+(
+   TEN                  char(64),
+   MA_THANH_PHO         varchar(12) not null,
+   primary key (MA_THANH_PHO)
+);
+
+alter table CT_PHONG add constraint FK_CT_PHONG foreign key (MA_CO_SO)
+      references CO_SO_PHONG (MA_CO_SO);
+
+alter table CT_PHONG add constraint FK_CT_PHONG2 foreign key (MA_PHONG)
+      references PHONG (MA_PHONG);
+
+alter table DANH_GIA add constraint FK_DANH_GIA foreign key (MA_KHACH_SAN)
+      references KHACH_SAN (MA_KHACH_SAN);
+
+alter table DANH_GIA add constraint FK_DANH_GIA2 foreign key (MA_NGUOI_DUNG)
+      references NGUOI_DUNG (MA_NGUOI_DUNG);
+
+alter table DAT_PHONG add constraint FK_DAT foreign key (MA_NGUOI_DUNG)
+      references NGUOI_DUNG (MA_NGUOI_DUNG);
+
+alter table DAT_PHONG add constraint FK_DUOC_DAT foreign key (MA_PHONG)
+      references PHONG (MA_PHONG);
+
+alter table KHACH_SAN add constraint FK_CO foreign key (MA_THANH_PHO)
+      references THANH_PHO (MA_THANH_PHO);
+
+alter table PHONG add constraint FK_GOM foreign key (MA_KHACH_SAN)
+      references KHACH_SAN (MA_KHACH_SAN);
+	  
+	  
 -- nguoi_dung
 INSERT INTO `nguoi_dung` (`USERNAME`, `PASSWORD`, `HO_TEN`, `SDT`, `DIA_CHI`, `NGAY_SINH`, `CMND`, `EMAIL`, `MA_NGUOI_DUNG`, `TOKEN`) VALUES
-('test', '$2y$10$qD59m34E7g1/gthGd/vmq.85SHvmGv5qc4up6jRRNn83NUL3NRepK', 'Nguyen Van A', NULL, NULL, NULL, NULL, NULL, '', NULL),
-('admin', '$2y$10$jExckHEPTCVO0l3CaMH8l.GrqsG9mfQBblQzWuYQOvtCVCk.KIfMC', 'Quoc Thong', '0123123213', '100 ABC ABC DFFFFF', '1999-04-04', '0242424242', 'thongtran1100@gmail.com', '1', '66724f7870c38ebb8853ba26e8c38676');
+('admin', '$2y$10$jExckHEPTCVO0l3CaMH8l.GrqsG9mfQBblQzWuYQOvtCVCk.KIfMC', 'Quoc Thong', '0123123213', '100 ABC ABC DFFFFF', '1999-04-04', '0242424242', 'thongtran1100@gmail.com',1, '66724f7870c38ebb8853ba26e8c38676'),
+('test', '$2y$10$qD59m34E7g1/gthGd/vmq.85SHvmGv5qc4up6jRRNn83NUL3NRepK', 'Nguyen Van A', NULL, NULL, NULL, NULL, NULL, 2, NULL)
+;
 -- thanh_pho
 INSERT INTO `thanh_pho` (`TEN`, `MA_THANH_PHO`) VALUES ('Hồ Chí Minh', '1'), ('Hà Nội', '2'), ('Đà Nẵng', '3'), ('Vũng Tàu', '4'), ('Đà Lạt', '5');
 -- khach_san
@@ -17,9 +169,9 @@ INSERT INTO `phong` (`TEN_PHONG`, `GIA_PHONG`, `DIEN_TICH`, `SUC_CHUA`, `LOAI_GI
 ('Single room - Premium', '1300000', '29', '4', '1 giường đôi', 'R000007', 'KS000006'),
 ('Ocean View Luxury', '8900000', '40', '8', '2 giường đôi', 'R000008', 'KS000006');
 -- danh_gia
-INSERT INTO `danh_gia` (`MA_NGUOI_DUNG`, `MA_KHACH_SAN`, `SO_DIEM`, `NOI_DUNG`) VALUES ('1', 'KS000006', '8', 'khach san tot'), ('', 'KS000006', '7', 'ok');
+INSERT INTO `danh_gia` (`MA_NGUOI_DUNG`, `MA_KHACH_SAN`, `SO_DIEM`, `NOI_DUNG`) VALUES (1, 'KS000006', '8', 'khach san tot'), (2, 'KS000006', '7', 'ok');
 -- dat_phong
-INSERT INTO `dat_phong` (`NGAY_DAT`, `NGAY_DEN`, `NGAY_DI`, `TONG_TIEN`, `TINH_TRANG`, `IS_REVIEW`, `MA_DAT_PHONG`, `MA_NGUOI_DUNG`, `MA_PHONG`) VALUES ('2020-06-19 00:00:00', '2020-06-25', '2020-06-30', '8900000', 'pending', '1', 'DP000001', '1', 'R000008'), ('2020-06-01 00:00:00', '2020-06-02', '2020-06-06', '2500000', 'done', '0', 'DP000002', '1', 'R000001'), ('2020-06-19 00:00:00', '2020-06-20', '2020-06-30', '1300000', 'canceled', '0', 'DP000003', '1', 'R000007');
+INSERT INTO `dat_phong` (`NGAY_DAT`, `NGAY_DEN`, `NGAY_DI`, `TONG_TIEN`, `TINH_TRANG`, `IS_REVIEW`, `MA_DAT_PHONG`, `MA_NGUOI_DUNG`, `MA_PHONG`) VALUES ('2020-06-19 00:00:00', '2020-06-25', '2020-06-30', '8900000', 'pending', '1', 'DP000001', 1, 'R000008'), ('2020-06-01 00:00:00', '2020-06-02', '2020-06-06', '2500000', 'done', '0', 'DP000002', 1, 'R000001'), ('2020-06-19 00:00:00', '2020-06-20', '2020-06-30', '1300000', 'canceled', '0', 'DP000003', 1, 'R000007');
 -- co_so_phong
 INSERT INTO `co_so_phong` (`TEN_CO_SO`, `MA_CO_SO`) VALUES ('Điện thoại', 'CS0001'), ('Wifi', 'CS0002'), ('TV', 'CS0003'), ('Két sắt', 'CS0004'), ('Điều hoà', 'CS0010'), ('Tủ lạnh', 'CS0005'), ('Mấy sấy tóc', 'CS0006'), ('Bàn làm việc', 'CS0007'), ('Tủ quần áo', 'CS0008'), ('Ban công', 'CS0009');
 --ct_phong
