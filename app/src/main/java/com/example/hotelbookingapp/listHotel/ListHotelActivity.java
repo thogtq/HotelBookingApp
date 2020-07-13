@@ -1,9 +1,13 @@
 package com.example.hotelbookingapp.listHotel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.hotelbookingapp.BookingActivity;
 import com.example.hotelbookingapp.R;
 
 import java.util.ArrayList;
@@ -24,6 +28,14 @@ public class ListHotelActivity extends AppCompatActivity {
         AnhXa();
         adapter = new ListHotelAdapter(this, R.layout.row_list_hotel, arrayHotel);
         listViewHotel.setAdapter(adapter);
+        listViewHotel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //position trả về vị trí click ->0
+                Intent bookingActivity = new Intent(ListHotelActivity.this, BookingActivity.class);
+                startActivity(bookingActivity);
+            }
+        });
 
     }
 
