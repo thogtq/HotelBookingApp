@@ -1,4 +1,4 @@
-package com.example.hotelbookingapp;
+package com.example.hotelbookingapp.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.asynctask.Signup;
 
 public class SignupActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.hotelbookingapp;
+package com.example.hotelbookingapp.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -8,6 +8,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.example.hotelbookingapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

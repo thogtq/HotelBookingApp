@@ -2,28 +2,22 @@ package com.example.hotelbookingapp.ui.home;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.arch.lifecycle.ViewModelProviders;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
-import com.example.hotelbookingapp.MainActivity;
 import com.example.hotelbookingapp.R;
-import com.example.hotelbookingapp.SignupActivity;
 import com.example.hotelbookingapp.listHotel.ListHotelActivity;
-import com.example.hotelbookingapp.listHotel.ListHotelAdapter;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class HomeFragment extends Fragment {

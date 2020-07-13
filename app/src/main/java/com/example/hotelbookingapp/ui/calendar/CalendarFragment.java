@@ -1,28 +1,20 @@
 package com.example.hotelbookingapp.ui.calendar;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import com.example.hotelbookingapp.R;
-import com.example.hotelbookingapp.ui.calendar.CalendarViewModel;
-import com.example.hotelbookingapp.ui.calendar.tab.DaHuyFragment;
-import com.example.hotelbookingapp.ui.calendar.tab.HoanTatFragment;
-import com.example.hotelbookingapp.ui.calendar.tab.SapToiFragment;
+import com.example.hotelbookingapp.ui.calendar.tab.listHotelDaHuy.DaHuyFragment;
+import com.example.hotelbookingapp.ui.calendar.tab.listHotelHoanTat.HoanTatFragment;
+import com.example.hotelbookingapp.ui.calendar.tab.listHotelSapToi.SapToiFragment;
 import com.example.hotelbookingapp.ui.calendar.tab.TabViewAdapter;
-
-import java.util.Calendar;
 
 public class CalendarFragment extends Fragment {
 

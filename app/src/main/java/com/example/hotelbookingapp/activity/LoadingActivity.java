@@ -1,8 +1,10 @@
-package com.example.hotelbookingapp;
+package com.example.hotelbookingapp.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.hotelbookingapp.R;
 
 public class LoadingActivity extends AppCompatActivity {
 

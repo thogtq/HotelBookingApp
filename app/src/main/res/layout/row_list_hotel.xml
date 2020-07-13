@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
+    android:layout_width="match_parent"
     android:layout_height="500dp"
     android:layout_marginLeft="2.5dp"
     android:layout_marginRight="2.5dp"
@@ -54,7 +54,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_below="@id/textViewGia"
-        android:layout_marginLeft="240dp"
+        android:layout_marginLeft="220dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/icon_parking"
         android:padding="10dp" />
@@ -91,11 +91,12 @@
         android:layout_toRightOf="@id/imageViewIconBed"
         android:background="@drawable/icon_wifi"
         android:padding="10dp" />
+
     <ImageView
         android:id="@+id/imageViewTemp"
-        android:layout_below="@id/imageViewIconParking"
         android:layout_width="400dp"
         android:layout_height="5dp"
+        android:layout_below="@id/imageViewIconParking"
         android:padding="10dp" />
 
 </RelativeLayout>

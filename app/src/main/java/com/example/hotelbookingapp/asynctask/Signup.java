@@ -11,7 +11,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.hotelbookingapp.MainActivity;
+import com.example.hotelbookingapp.activity.MainActivity;
 import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.Server;
 

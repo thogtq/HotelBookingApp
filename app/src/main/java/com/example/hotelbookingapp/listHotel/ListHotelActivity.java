@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.hotelbookingapp.BookingActivity;
+import com.example.hotelbookingapp.activity.BookingActivity;
 import com.example.hotelbookingapp.R;
 
 import java.util.ArrayList;

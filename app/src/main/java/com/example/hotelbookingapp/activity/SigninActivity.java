@@ -1,18 +1,15 @@
-package com.example.hotelbookingapp;
+package com.example.hotelbookingapp.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.asynctask.Signin;
-
-import java.util.HashMap;
 
 public class SigninActivity extends AppCompatActivity {
     @Override

@@ -5,10 +5,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.EditText;
 
-import com.example.hotelbookingapp.MainActivity;
+import com.example.hotelbookingapp.activity.MainActivity;
 import com.example.hotelbookingapp.Server;
 
 
