@@ -1,6 +1,7 @@
 package com.example.hotelbookingapp.ui.home;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,7 +16,11 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.example.hotelbookingapp.MainActivity;
 import com.example.hotelbookingapp.R;
+import com.example.hotelbookingapp.SignupActivity;
+import com.example.hotelbookingapp.listHotel.ListHotelActivity;
+import com.example.hotelbookingapp.listHotel.ListHotelAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,6 +32,7 @@ public class HomeFragment extends Fragment {
     protected Button buttonDateCheckIn;
     protected Button buttonDateCheckOut;
     protected ViewFlipper viewFlipper;
+    protected  Button buttonSearch;
 
     private void DateChoose(final Button buttonDate){
         final Calendar calendar = Calendar.getInstance();
@@ -91,6 +97,16 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+        buttonSearch = (Button) root.findViewById(R.id.buttonSearch);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listHotelActivity=new Intent(getActivity(), ListHotelActivity.class);
+                //homeFragment.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                //homeFragment.putExtra("EXIT", true);
+                startActivity(listHotelActivity);
+            }
+        });
         viewFlipper = (ViewFlipper) root.findViewById(R.id.viewFlipperAd);
         ActionViewFlipper();
         return root;

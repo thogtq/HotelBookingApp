@@ -77,7 +77,7 @@
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_signup_username"
-            app:layout_constraintVertical_bias="0.091" />
+            app:layout_constraintVertical_bias="0.078" />
 
         <EditText
             android:id="@+id/et_signup_conf_password"
@@ -103,10 +103,10 @@
             android:background="@drawable/continue_buttton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.43"
+            app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_signup_conf_password"
-            app:layout_constraintVertical_bias="0.787" />
+            app:layout_constraintVertical_bias="0.456" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -147,10 +147,10 @@
             android:paddingLeft="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-            app:layout_constraintVertical_bias="0.076" />
+            app:layout_constraintVertical_bias="0.0" />
     </android.support.constraint.ConstraintLayout>
 
     <ImageView

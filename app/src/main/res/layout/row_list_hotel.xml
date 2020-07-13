@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="500dp"
+    android:layout_marginLeft="2.5dp"
+    android:layout_marginRight="2.5dp"
+    android:background="@android:drawable/toast_frame">
+
+    <ImageView
+        android:id="@+id/imageViewHinh"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/textViewTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewHinh"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Tên"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewMota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTen"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Mô tả"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textViewGia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewMota"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Giá"
+        android:textColor="#03A9F4"
+        android:textSize="20dp"
+        android:textStyle="bold|italic" />
+
+    <ImageView
+        android:id="@+id/imageViewIconParking"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/textViewGia"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/icon_parking"
+        android:padding="10dp" />
+
+    <ImageView
+        android:id="@+id/imageViewIconBath"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/textViewGia"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/imageViewIconParking"
+        android:background="@drawable/icon_bath"
+        android:padding="10dp" />
+
+    <ImageView
+        android:id="@+id/imageViewIconBed"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/textViewGia"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/imageViewIconBath"
+        android:background="@drawable/icon_bed"
+        android:padding="10dp" />
+
+    <ImageView
+        android:id="@+id/imageViewIconWifi"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/textViewGia"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/imageViewIconBed"
+        android:background="@drawable/icon_wifi"
+        android:padding="10dp" />
+    <ImageView
+        android:id="@+id/imageViewTemp"
+        android:layout_below="@id/imageViewIconParking"
+        android:layout_width="400dp"
+        android:layout_height="5dp"
+        android:padding="10dp" />
+
+</RelativeLayout>
