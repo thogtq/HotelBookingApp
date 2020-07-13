@@ -76,8 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_signup_username"
-            app:layout_constraintVertical_bias="0.078" />
+/>
 
         <EditText
             android:id="@+id/et_signup_conf_password"
@@ -104,9 +103,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_signup_conf_password"
-            app:layout_constraintVertical_bias="0.456" />
+            app:layout_constraintStart_toStartOf="parent"/>
+
 
         <ImageView
             android:id="@+id/imageView4"
@@ -121,7 +119,7 @@
             app:srcCompat="@drawable/line" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/et_signup_phone"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:background="@drawable/signup_your_name"
@@ -133,11 +131,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_signup_conf_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_signup_username"
             app:layout_constraintVertical_bias="0.042" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/et_signup_email"
             android:layout_width="288dp"
             android:layout_height="27.5dp"
             android:background="@drawable/signup_your_name"
@@ -148,9 +146,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.401"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent"/>
+
     </android.support.constraint.ConstraintLayout>
 
     <ImageView

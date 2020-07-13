@@ -21,6 +21,6 @@ if($stmt->execute()){
     die(json_encode($data));
 }else{
     $data['status']=false;
-    $data['message']='Error';
+    $data['message']=$stmt->error;
     die(json_encode($data));
 }

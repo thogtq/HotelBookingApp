@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.hotelbookingapp.asynctask.Signup;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -14,6 +17,12 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        final EditText etHoTen = (EditText)findViewById(R.id.et_signup_hoten);
+        final EditText etUsername = (EditText)findViewById(R.id.et_signup_username);
+        final EditText etEmail = (EditText)findViewById(R.id.et_signup_email);
+        final EditText etSdt = (EditText)findViewById(R.id.et_signup_phone);
+        final EditText etPassword = (EditText)findViewById(R.id.et_signup_password);
+        final EditText etConfPassword = (EditText)findViewById(R.id.et_signup_conf_password);
         TextView alreadyHaveAccountText = (TextView) findViewById(R.id.alreadyHaveAccount);
         alreadyHaveAccountText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,11 +38,16 @@ public class SignupActivity extends AppCompatActivity {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeFragment=new Intent(SignupActivity.this, MainActivity.class);
                 //homeFragment.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 //homeFragment.putExtra("EXIT", true);
-                startActivity(homeFragment);
-                finishAffinity();
+                new Signup(SignupActivity.this).execute(
+                        etHoTen.getText().toString(), //0
+                        etUsername.getText().toString(),//1
+                        etEmail.getText().toString(),//2
+                        etSdt.getText().toString(),//3
+                        etPassword.getText().toString(),//4
+                        etConfPassword.getText().toString()//5
+                );
 
             }
         });
