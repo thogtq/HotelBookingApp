@@ -42,7 +42,6 @@ public class Signup extends AsyncTask<String,Long,Void> {
     @Override
     protected Void doInBackground(String... params) {
         try{
-            Log.d("test", Arrays.toString(params));
             HashMap<String,String> data = new HashMap<String,String>();
             data.put("ho_ten",params[0]);
             data.put("username",params[1]);
