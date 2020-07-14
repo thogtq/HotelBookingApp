@@ -3,6 +3,7 @@ package com.example.hotelbookingapp.listHotel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.hotelbookingapp.Server;
 import com.example.hotelbookingapp.activity.BookingActivity;
 import com.example.hotelbookingapp.R;
+import com.example.hotelbookingapp.asynctask.GetRoom;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,18 +46,14 @@ public class ListHotelActivity extends AppCompatActivity {
               listViewHotel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                   @Override
                   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                      Hotel tempHotel =arrayHotel.get(position);
+                      new GetRoom(ListHotelActivity.this).execute(tempHotel.getMaPhong());
                       //position trả về vị trí click ->0
-                      Intent bookingActivity = new Intent(ListHotelActivity.this, BookingActivity.class);
-                      startActivity(bookingActivity);
                   }
               });
           }catch (Exception e){}
             //The key argument here must match that used in the other activity
         }
-    }
-    private JSONArray getListHotel() throws JSONException {
-
-        return null;
     }
     private void AnhXa() throws JSONException {
         NumberFormat myFormat = NumberFormat.getInstance();

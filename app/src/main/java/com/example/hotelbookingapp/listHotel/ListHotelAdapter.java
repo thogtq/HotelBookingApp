@@ -64,7 +64,6 @@ public class ListHotelAdapter extends BaseAdapter {
         txtTen.setText(hotel.getTen());
         txtMoTa.setText(hotel.getMota());
         txtGia.setText(hotel.getGia());
-        Server sv= new Server();
         new DownloadImageTask(imgHinh).execute(hotel.getUrlHinh());
         return convertView;
     }

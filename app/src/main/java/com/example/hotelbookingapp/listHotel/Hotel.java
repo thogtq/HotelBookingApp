@@ -34,7 +34,9 @@ public class Hotel {
         Gia = gia;
         Hinh =Hinh;
     }
-
+    public String getMaPhong() {
+        return this.maPhong;
+    }
     public String getTen() {
         return Ten;
     }

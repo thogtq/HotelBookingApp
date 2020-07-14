@@ -7,7 +7,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
+
 import com.example.hotelbookingapp.Server;
+import com.example.hotelbookingapp.activity.BookingActivity;
 import com.example.hotelbookingapp.listHotel.ListHotelActivity;
 
 import org.json.JSONArray;
@@ -16,16 +19,17 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class SearchHotel extends AsyncTask <String,Long,Void>{
+public class GetRoom extends AsyncTask <String,Long,Void> {
     @SuppressLint("StaticFieldLeak")
-    private Context context,base;
+    private Context context;
     private int result;
     private String message;
+    @SuppressLint("StaticFieldLeak")
     private Activity activity;
     private JSONArray returnData;
     @SuppressLint("StaticFieldLeak")
 
-    public SearchHotel(Context context){
+    public GetRoom(Context context){
         this.activity = (Activity) context;
         this.context = context;
         this.result = 0;
@@ -33,16 +37,9 @@ public class SearchHotel extends AsyncTask <String,Long,Void>{
     }
     @Override
     protected Void doInBackground(String... params) {
-
-        //Prepare data to send to server
         HashMap<String,String> sendData = new HashMap<String,String>();
-        sendData.put("loc",params[0]);
-        sendData.put("start_date",params[1]);
-        sendData.put("end_date",params[2]);
-        sendData.put("adult_num",params[3]);
-        sendData.put("child_num",params[4]);
-        //Send data and get server res
-        String resString = Server.sendHttpRequest(Server.searchHotel, sendData, "POST");
+        sendData.put("room_id",params[0]);
+        String resString = Server.sendHttpRequest(Server.getRoom, sendData, "POST");
         if(resString.equals("")){
             this.result = 0;
             message = "Không thể kết nối máy chủ !";
@@ -52,7 +49,7 @@ public class SearchHotel extends AsyncTask <String,Long,Void>{
                 arrRes = new JSONObject(resString);
                 if(arrRes.getInt("status") == 1){
                     this.result = 1;
-                    this.returnData = arrRes.getJSONArray("list_data");
+                    this.returnData = arrRes.getJSONArray("room_data");
                     this.message = "Success";
                 }else{
                     result = 0;
@@ -80,9 +77,9 @@ public class SearchHotel extends AsyncTask <String,Long,Void>{
                     });
             alertDialog.show();
         }else{
-            Intent listHotelActivity=new Intent(this.activity, ListHotelActivity.class);
-            listHotelActivity.putExtra("listHotel",returnData.toString());
-            context.startActivity(listHotelActivity);
+            Intent bookingActivity = new Intent(context, BookingActivity.class);
+            bookingActivity.putExtra("roomInfo",returnData.toString());
+            this.context.startActivity(bookingActivity);
         }
     }
 }

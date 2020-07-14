@@ -29,20 +29,10 @@ final public class Server {
     public static final String Register = ServerName+"api.php/?apicall=register";
     public static final String searchHotel = ServerName+"api.php/?apicall=search_hotel";
     public static final String roomImage = ServerName+"images/room/";
+    public static final String getRoom = ServerName+"api.php/?apicall=get_room";
     public static String sendHttpRequest(String requestURL, HashMap<String, String> postDataParams,String method){
         RequestHandler request = new RequestHandler();
         return request.sendHttpRequest(requestURL,postDataParams,method);
-    }
-    public Bitmap downloadImage(String url){
-        String urldisplay = url;
-        Bitmap mIcon11 = null;
-        try {
-            InputStream in = new java.net.URL(urldisplay).openStream();
-            mIcon11 = BitmapFactory.decodeStream(in);
-        } catch (Exception e) {
-
-        }
-        return mIcon11;
     }
     public Server(){
 

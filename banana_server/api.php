@@ -10,7 +10,10 @@ switch ($request){
     case'register':
         include "register.php";
         break;
-        case 'search_hotel';
+    case 'search_hotel';
         include "search_hotel.php";
+        break;
+    case'get_room':
+        include "get_room.php";
         break;
 }
