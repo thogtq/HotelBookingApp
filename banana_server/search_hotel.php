@@ -1,11 +1,11 @@
 <?php
 //$conn = new mysqli();
-$loc=$_GET['loc'];
-$start_date=$_GET['start_date'];
-$end_date=$_GET['end_date'];
-$adult_num=$_GET['adult_num'];
-$child_num=$_GET['child_num'];
-$total_guest=$adult_num+$child_num;
+$loc=$_POST['loc'];
+$start_date=$_POST['start_date'];
+$end_date=$_POST['end_date'];
+$adult_num=empty($_POST['adult_num'])? $_POST['adult_num'] :0;
+$child_num=empty($_POST['child_num'])? $_POST['child_num']:0;
+$total_guest=(int)$adult_num+(int)$child_num;
 $data = array(
     'status'=>0,
     'list_data'=>'',
@@ -30,13 +30,12 @@ switch ($loc){
         $loc = "Hồ Chí Minh";
         break;
 }
-echo $loc;
-if(empty($_GET['start_date']) || empty($_GET['end_date'])) die(json_encode($data));
+if(empty($_POST['start_date']) || empty($_POST['end_date'])) die(json_encode($data));
 // STR_TO_DATE(,'%d/%m/%Y')
 //Query
 $result = $conn->query(
     "
-    SELECT p.ma_phong, ten_phong, loai_giuong, dien_tich, suc_chua, ten_ks, ten
+    SELECT p.ma_phong, ten_phong, loai_giuong, dien_tich, suc_chua, ten_ks, ten,gia_phong
     FROM phong p
     INNER JOIN khach_san ks on p.ma_khach_san = ks.ma_khach_san
     INNER JOIN thanh_pho tp on ks.ma_thanh_pho = tp.ma_thanh_pho
@@ -52,7 +51,7 @@ $result = $conn->query(
 );
 
 if ($result->num_rows){
-    $data['list_data']=$result->fetch_all(MYSQLI_NUM );
+    $data['list_data']=$result->fetch_all(MYSQLI_ASSOC);
     $data['status']=1;
     $data['message']=$result->num_rows;
     die(json_encode($data));

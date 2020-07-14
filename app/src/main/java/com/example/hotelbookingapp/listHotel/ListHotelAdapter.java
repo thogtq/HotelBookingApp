@@ -7,8 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.example.hotelbookingapp.Server;
 import com.example.hotelbookingapp.R;
+import com.example.hotelbookingapp.asynctask.DownloadImageTask;
 
 import java.util.List;
 
@@ -63,8 +64,8 @@ public class ListHotelAdapter extends BaseAdapter {
         txtTen.setText(hotel.getTen());
         txtMoTa.setText(hotel.getMota());
         txtGia.setText(hotel.getGia());
-        imgHinh.setImageResource(hotel.getHinh());
-
+        Server sv= new Server();
+        new DownloadImageTask(imgHinh).execute(hotel.getUrlHinh());
         return convertView;
     }
 }

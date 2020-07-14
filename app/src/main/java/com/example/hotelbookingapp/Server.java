@@ -1,11 +1,15 @@
 package com.example.hotelbookingapp;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.widget.ImageView;
 
 import org.json.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -28,6 +32,20 @@ final public class Server {
     public static String sendHttpRequest(String requestURL, HashMap<String, String> postDataParams,String method){
         RequestHandler request = new RequestHandler();
         return request.sendHttpRequest(requestURL,postDataParams,method);
+    }
+    public Bitmap downloadImage(String url){
+        String urldisplay = url;
+        Bitmap mIcon11 = null;
+        try {
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+
+        }
+        return mIcon11;
+    }
+    public Server(){
+
     }
 }
 class RequestHandler {

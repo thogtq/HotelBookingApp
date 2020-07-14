@@ -19,11 +19,18 @@ import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.example.hotelbookingapp.R;
+import com.example.hotelbookingapp.Server;
+import com.example.hotelbookingapp.asynctask.SearchHotel;
 import com.example.hotelbookingapp.listHotel.ListHotelActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
@@ -33,7 +40,9 @@ public class HomeFragment extends Fragment {
     protected Button buttonDateCheckOut;
     protected ViewFlipper viewFlipper;
     protected  Button buttonSearch;
-    private String strLocation, strStartDate,  strEndDate,  strAdultNum,strChildNum;
+    private String strLocation, strStartDate,  strEndDate,  strAdultNum,strChildNum,returnMsg;
+    //private JSONArray returnData;
+    private AlertDialog alertDialog;
     private void DateChoose(final Button buttonDate){
         final Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DATE);
@@ -98,7 +107,6 @@ public class HomeFragment extends Fragment {
             }
         });*/
 
-
         buttonSearch = (Button) root.findViewById(R.id.buttonSearch);
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             //Params for buttonSearch
@@ -109,24 +117,20 @@ public class HomeFragment extends Fragment {
                 strEndDate =buttonDateCheckOut.getText().toString();
                 strAdultNum =((EditText)root.findViewById(R.id.editTextAdults)).getText().toString();
                 strChildNum = ((EditText)root.findViewById(R.id.editTextChidren)).getText().toString();
-                Intent listHotelActivity=new Intent(getActivity(), ListHotelActivity.class);
                 //listHotelActivity.putExtra("test",teststr);
                 //homeFragment.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 //homeFragment.putExtra("EXIT", true);
-                listHotelActivity.putExtra("Location",strLocation );
-                listHotelActivity.putExtra("startDate", strStartDate);
-                listHotelActivity.putExtra("endDate",strEndDate );
-                listHotelActivity.putExtra("adultNum", strAdultNum);
-                listHotelActivity.putExtra("childNum",strChildNum );
+
                 //Date compare
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 try{
                     Date dateStart = sdf.parse(strStartDate);
                     Date dateEnd = sdf.parse(strEndDate);
                     if (dateEnd.after(dateStart)) {
-                        startActivity(listHotelActivity);
+                        //Async Task
+                        new SearchHotel(getContext()).execute(strLocation,strStartDate,strEndDate,strAdultNum,strChildNum);
                     }else{
-                        AlertDialog alertDialog = new AlertDialog.Builder(Objects.requireNonNull(getContext())).create();
+                        alertDialog = new AlertDialog.Builder(Objects.requireNonNull(getContext())).create();
                         alertDialog.setTitle("Thông báo");
                         alertDialog.setMessage("Ngày đi không được nhỏ hơn ngày đến");
                         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",

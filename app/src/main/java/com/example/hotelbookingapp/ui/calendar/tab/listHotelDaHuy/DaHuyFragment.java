@@ -35,10 +35,6 @@ public class DaHuyFragment extends Fragment {
     private void AnhXa() {
         arrayHotel = new ArrayList<>();
         arrayHotel.add(new Hotel("Khách sạn A", "13/07/2020 - 16/07/2020", "1,200,000đ", R.drawable.ks_thuyduong));
-        arrayHotel.add(new Hotel("Khách sạn B", "13/07/2020 - 16/07/2020", "1,500,000đ", R.drawable.ks_summer));
-        arrayHotel.add(new Hotel("Khách sạn C", "13/07/2020 - 16/07/2020", "1,800,000đ", R.drawable.ks_phungha));
-        arrayHotel.add(new Hotel("Khách sạn D", "13/07/2020 - 16/07/2020", "1,200,000đ", R.drawable.ks_thuyduong));
-        arrayHotel.add(new Hotel("Khách sạn E", "13/07/2020 - 16/07/2020", "1,500,000đ", R.drawable.ks_summer));
-        arrayHotel.add(new Hotel("Khách sạn E", "13/07/2020 - 16/07/2020", "1,800,000đ", R.drawable.ks_phungha));
+
     }
 }
