@@ -174,7 +174,7 @@ INSERT INTO `danh_gia` (`MA_NGUOI_DUNG`, `MA_KHACH_SAN`, `SO_DIEM`, `NOI_DUNG`) 
 INSERT INTO `dat_phong` (`NGAY_DAT`, `NGAY_DEN`, `NGAY_DI`, `TONG_TIEN`, `TINH_TRANG`, `IS_REVIEW`, `MA_DAT_PHONG`, `MA_NGUOI_DUNG`, `MA_PHONG`) VALUES ('2020-06-19 00:00:00', '2020-06-25', '2020-06-30', '8900000', 'pending', '1', 'DP000001', 1, 'R000008'), ('2020-06-01 00:00:00', '2020-06-02', '2020-06-06', '2500000', 'done', '0', 'DP000002', 1, 'R000001'), ('2020-06-19 00:00:00', '2020-06-20', '2020-06-30', '1300000', 'canceled', '0', 'DP000003', 1, 'R000007');
 -- co_so_phong
 INSERT INTO `co_so_phong` (`TEN_CO_SO`, `MA_CO_SO`) VALUES ('Điện thoại', 'CS0001'), ('Wifi', 'CS0002'), ('TV', 'CS0003'), ('Két sắt', 'CS0004'), ('Điều hoà', 'CS0010'), ('Tủ lạnh', 'CS0005'), ('Mấy sấy tóc', 'CS0006'), ('Bàn làm việc', 'CS0007'), ('Tủ quần áo', 'CS0008'), ('Ban công', 'CS0009');
---ct_phong
+-- ct_phong
 INSERT INTO `ct_phong` (`MA_PHONG`, `MA_CO_SO`, `DON_VI`) VALUES 
 ('R000001', 'CS0001', NULL),
 ('R000001', 'CS0002', NULL),

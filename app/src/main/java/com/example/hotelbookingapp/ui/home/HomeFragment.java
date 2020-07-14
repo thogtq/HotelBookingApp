@@ -1,8 +1,11 @@
 package com.example.hotelbookingapp.ui.home;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.widget.DatePicker;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
@@ -19,6 +23,8 @@ import com.example.hotelbookingapp.listHotel.ListHotelActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -27,7 +33,7 @@ public class HomeFragment extends Fragment {
     protected Button buttonDateCheckOut;
     protected ViewFlipper viewFlipper;
     protected  Button buttonSearch;
-
+    private String strLocation, strStartDate,  strEndDate,  strAdultNum,strChildNum;
     private void DateChoose(final Button buttonDate){
         final Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DATE);
@@ -67,7 +73,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         buttonDateCheckIn=(Button) root.findViewById(R.id.buttonDateCheckIn);
         buttonDateCheckIn.setOnClickListener(new View.OnClickListener() {
@@ -91,14 +97,48 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+
+
         buttonSearch = (Button) root.findViewById(R.id.buttonSearch);
         buttonSearch.setOnClickListener(new View.OnClickListener() {
+            //Params for buttonSearch
             @Override
             public void onClick(View v) {
+                strLocation = ((EditText)root.findViewById(R.id.et_location)).getText().toString();
+                strStartDate =buttonDateCheckIn.getText().toString();
+                strEndDate =buttonDateCheckOut.getText().toString();
+                strAdultNum =((EditText)root.findViewById(R.id.editTextAdults)).getText().toString();
+                strChildNum = ((EditText)root.findViewById(R.id.editTextChidren)).getText().toString();
                 Intent listHotelActivity=new Intent(getActivity(), ListHotelActivity.class);
+                //listHotelActivity.putExtra("test",teststr);
                 //homeFragment.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 //homeFragment.putExtra("EXIT", true);
-                startActivity(listHotelActivity);
+                listHotelActivity.putExtra("Location",strLocation );
+                listHotelActivity.putExtra("startDate", strStartDate);
+                listHotelActivity.putExtra("endDate",strEndDate );
+                listHotelActivity.putExtra("adultNum", strAdultNum);
+                listHotelActivity.putExtra("childNum",strChildNum );
+                //Date compare
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                try{
+                    Date dateStart = sdf.parse(strStartDate);
+                    Date dateEnd = sdf.parse(strEndDate);
+                    if (dateEnd.after(dateStart)) {
+                        startActivity(listHotelActivity);
+                    }else{
+                        AlertDialog alertDialog = new AlertDialog.Builder(Objects.requireNonNull(getContext())).create();
+                        alertDialog.setTitle("Thông báo");
+                        alertDialog.setMessage("Ngày đi không được nhỏ hơn ngày đến");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                }catch (Exception e){}
+
             }
         });
         viewFlipper = (ViewFlipper) root.findViewById(R.id.viewFlipperAd);
