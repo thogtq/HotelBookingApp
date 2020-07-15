@@ -30,16 +30,19 @@ public class ListHotelActivity extends AppCompatActivity {
     ArrayList<Hotel> arrayHotel;
     ListHotelAdapter adapter;
     private JSONArray listHotel;
+    private String startDate,endDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_hotel);
 
         //Get data from main activity
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         if (extras != null) {
           try{
               this.listHotel = new JSONArray(extras.getString("listHotel"));
+              this.startDate =extras.getString("startDate");
+              this.endDate = extras.getString("endDate");
               AnhXa();
               adapter = new ListHotelAdapter(this, R.layout.row_list_hotel, arrayHotel);
               listViewHotel.setAdapter(adapter);
@@ -47,7 +50,7 @@ public class ListHotelActivity extends AppCompatActivity {
                   @Override
                   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                       Hotel tempHotel =arrayHotel.get(position);
-                      new GetRoom(ListHotelActivity.this).execute(tempHotel.getMaPhong());
+                      new GetRoom(ListHotelActivity.this).execute(tempHotel.getMaPhong(),startDate,endDate);
                       //position trả về vị trí click ->0
                   }
               });

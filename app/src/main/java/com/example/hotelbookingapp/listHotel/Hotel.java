@@ -12,7 +12,6 @@ public class Hotel {
     private String Gia;
     private int Hinh;
     private String urlHinh;
-
     public Hotel(String maPhong,String ten, String mota, String gia) {
         this.maPhong = maPhong;
         Ten = ten;

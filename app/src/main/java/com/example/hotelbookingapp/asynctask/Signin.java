@@ -45,6 +45,8 @@ public class Signin extends AsyncTask<String,Long,Void> {
                 if(arrRes.getString("status").equals("true") && !arrRes.getString("token").equals("") ){
                     this.result = 1;
                     Server.userToken = arrRes.getString("token");
+                    Server.userName = arrRes.getJSONObject("user_data").getString("HO_TEN");
+                    Server.userPhone = arrRes.getJSONObject("user_data").getString("SDT");
                 }else{
                     this.result = 0;
                 }

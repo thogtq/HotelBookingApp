@@ -20,7 +20,7 @@ public class SearchHotel extends AsyncTask <String,Long,Void>{
     @SuppressLint("StaticFieldLeak")
     private Context context,base;
     private int result;
-    private String message;
+    private String message,startDate,endDate;
     private Activity activity;
     private JSONArray returnData;
     @SuppressLint("StaticFieldLeak")
@@ -37,8 +37,8 @@ public class SearchHotel extends AsyncTask <String,Long,Void>{
         //Prepare data to send to server
         HashMap<String,String> sendData = new HashMap<String,String>();
         sendData.put("loc",params[0]);
-        sendData.put("start_date",params[1]);
-        sendData.put("end_date",params[2]);
+        sendData.put("start_date",params[1]);this.startDate=params[1];
+        sendData.put("end_date",params[2]);this.endDate=params[2];
         sendData.put("adult_num",params[3]);
         sendData.put("child_num",params[4]);
         //Send data and get server res
@@ -82,6 +82,8 @@ public class SearchHotel extends AsyncTask <String,Long,Void>{
         }else{
             Intent listHotelActivity=new Intent(this.activity, ListHotelActivity.class);
             listHotelActivity.putExtra("listHotel",returnData.toString());
+            listHotelActivity.putExtra("startDate",this.startDate);
+            listHotelActivity.putExtra("endDate",this.endDate);
             context.startActivity(listHotelActivity);
         }
     }

@@ -16,4 +16,7 @@ switch ($request){
     case'get_room':
         include "get_room.php";
         break;
+    case 'book_hotel':
+        include "book_hotel.php";
+        break;
 }

@@ -7,11 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 
 import com.example.hotelbookingapp.Server;
 import com.example.hotelbookingapp.activity.BookingActivity;
-import com.example.hotelbookingapp.listHotel.ListHotelActivity;
+import com.example.hotelbookingapp.activity.ConfirmActivity;
+import com.example.hotelbookingapp.activity.ConfirmationActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class GetRoom extends AsyncTask <String,Long,Void> {
+public class BookHotel extends AsyncTask<String,Long,Void>  {
     @SuppressLint("StaticFieldLeak")
     private Context context;
     private int result;
@@ -29,19 +29,22 @@ public class GetRoom extends AsyncTask <String,Long,Void> {
     private JSONArray returnData;
     @SuppressLint("StaticFieldLeak")
 
-    public GetRoom(Context context){
+    public BookHotel(Context context){
         this.activity = (Activity) context;
         this.context = context;
         this.result = 0;
         this.message="empty";
     }
+
     @Override
     protected Void doInBackground(String... params) {
         HashMap<String,String> sendData = new HashMap<String,String>();
-        sendData.put("room_id",params[0]);
-        this.startDate = params[1];
-        this.endDate = params[2];
-        String resString = Server.sendHttpRequest(Server.getRoom, sendData, "POST");
+        sendData.put("token",params[0]);
+        sendData.put("start_date",params[1]);
+        sendData.put("end_date",params[2]);
+        sendData.put("total_price",params[3]);
+        sendData.put("room_id",params[4]);
+        String resString = Server.sendHttpRequest(Server.bookHotel, sendData, "POST");
         if(resString.equals("")){
             this.result = 0;
             message = "Không thể kết nối máy chủ !";
@@ -51,7 +54,6 @@ public class GetRoom extends AsyncTask <String,Long,Void> {
                 arrRes = new JSONObject(resString);
                 if(arrRes.getInt("status") == 1){
                     this.result = 1;
-                    this.returnData = arrRes.getJSONArray("room_data");
                     this.message = "Success";
                 }else{
                     result = 0;
@@ -79,11 +81,9 @@ public class GetRoom extends AsyncTask <String,Long,Void> {
                     });
             alertDialog.show();
         }else{
-            Intent bookingActivity = new Intent(context, BookingActivity.class);
-            bookingActivity.putExtra("roomInfo",returnData.toString());
-            bookingActivity.putExtra("startDate",this.startDate);
-            bookingActivity.putExtra("endDate",this.endDate);
-            this.context.startActivity(bookingActivity);
+            Intent confirmationActivity = new Intent(this.context, ConfirmationActivity.class);
+            this.context.startActivity(confirmationActivity);
+            this.activity.finishAffinity();
         }
     }
 }

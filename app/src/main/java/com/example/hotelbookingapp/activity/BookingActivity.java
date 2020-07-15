@@ -29,6 +29,7 @@ public class BookingActivity extends AppCompatActivity {
     private ImageView imgRoom;
     private JSONObject roomInfo;
     private NumberFormat myFormat = NumberFormat.getInstance();
+    private String startDate,endDate;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,8 @@ public class BookingActivity extends AppCompatActivity {
             try {
                 myFormat.setGroupingUsed(true);
                JSONArray jsonarrRoom = new JSONArray(extras.getString("roomInfo"));
+               this.startDate = extras.getString("startDate");
+               this.endDate = extras.getString("endDate");
                 roomInfo = jsonarrRoom.getJSONObject(0);
                 String strTenKsPhong = roomInfo.getString("TEN_KS") + "\n" + roomInfo.getString("TEN_PHONG");
                 String strTTKS = "Địa chỉ: " + roomInfo.getString("DIA_CHI") + "\nSĐT: " + roomInfo.getString("SDT");
@@ -62,8 +65,15 @@ public class BookingActivity extends AppCompatActivity {
             buttonBooking.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent confirmActivity = new Intent(BookingActivity.this, ConfirmActivity.class);
-                    startActivity(confirmActivity);
+                   try{
+                       Intent confirmActivity = new Intent(BookingActivity.this, ConfirmActivity.class);
+                       confirmActivity.putExtra("roomId",roomInfo.getString("MA_PHONG"));
+                       confirmActivity.putExtra("startDate",startDate);
+                       confirmActivity.putExtra("endDate",endDate);
+                       confirmActivity.putExtra("price",roomInfo.getString("GIA_PHONG"));
+                       confirmActivity.putExtra("name",roomInfo.getString("TEN_KS") + "\n" + roomInfo.getString("TEN_PHONG"));
+                       startActivity(confirmActivity);
+                   }catch (Exception e ){}
                 }
             });
         }
