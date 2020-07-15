@@ -18,7 +18,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!-- background is material_grey_200 with .9 alpha -->
-    <solid android:color="#E6FFFFFF" />
+    <solid android:color="#CEFFFFFF" />
     <corners android:radius="22dp" />
 </shape>
 

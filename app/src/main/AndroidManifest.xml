@@ -21,6 +21,9 @@
         <activity android:name=".activity.ConfirmActivity"/>
         <activity android:name=".activity.ConfirmationActivity"/>
         <activity android:name=".activity.CancelActivity"/>
+        <activity android:name=".activity.InformationAccountActivity"/>
+        <activity android:name=".activity.UpdateInformationActivity"/>
+        <activity android:name=".activity.UpdatePasswordActivity"/>
         <activity
             android:name=".activity.LoadingActivity"
             android:label="@string/app_name">
