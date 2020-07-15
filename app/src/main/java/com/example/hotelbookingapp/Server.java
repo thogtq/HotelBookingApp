@@ -24,7 +24,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 final public class Server {
     public static String userToken = "";
-    public static final String ServerName = "http://192.168.1.4/";
+    public static final String ServerName = "http://192.168.1.18/";
     public static final String Login = ServerName+"api.php/?apicall=login";
     public static final String Register = ServerName+"api.php/?apicall=register";
     public static final String searchHotel = ServerName+"api.php/?apicall=search_hotel";
