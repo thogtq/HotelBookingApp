@@ -7,6 +7,18 @@
     android:background="@drawable/background"
     tools:context=".activity.SignupActivity">
 
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="©BananaBrother"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alreadyHaveAccount"
+        app:layout_constraintVertical_bias="0.746" />
+
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
@@ -175,8 +187,9 @@
         android:text="Already Have Account?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintVertical_bias="0.046" />
 
 </android.support.constraint.ConstraintLayout>
