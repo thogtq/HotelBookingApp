@@ -20,18 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7726d6c-5ec6-45b3-bbf8-1892bda62871" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/activity/ConfirmActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/activity/ConfirmActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/activity/CancelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/activity/CancelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/asynctask/GetCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/asynctask/GetCalendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/listHotel/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/listHotel/Hotel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/ui/calendar/tab/listHotelHoanTat/HoanTatFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/ui/calendar/tab/listHotelHoanTat/HoanTatFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/ui/calendar/tab/listHotelSapToi/ListHotelSapToiAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/ui/calendar/tab/listHotelSapToi/ListHotelSapToiAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/ui/calendar/tab/listHotelSapToi/SapToiFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/hotelbookingapp/ui/calendar/tab/listHotelSapToi/SapToiFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_booking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_booking.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_confirm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_confirm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_calendar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragment_calendar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/row_list_hotel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/row_list_hotel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/get_calendar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +70,7 @@
       <workItem from="1590633613483" duration="1808000" />
       <workItem from="1592212347054" duration="7072000" />
       <workItem from="1594701780791" duration="20872000" />
-      <workItem from="1594794388989" duration="13215000" />
+      <workItem from="1594794388989" duration="15664000" />
     </task>
     <servers />
   </component>
@@ -107,14 +102,14 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="836" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1594718569659" />
-    <state x="684" y="263" key="NewPhpClassDialog" timestamp="1594703275395">
+    <state x="684" y="263" key="NewPhpClassDialog" timestamp="1594821882521">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="684" y="263" key="NewPhpClassDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1594703275395" />
-    <state x="763" y="463" key="NewPhpFileDialog" timestamp="1594810816283">
+    <state x="684" y="263" key="NewPhpClassDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1594821882521" />
+    <state x="763" y="463" key="NewPhpFileDialog" timestamp="1594821891998">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="763" y="463" key="NewPhpFileDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1594810816283" />
+    <state x="763" y="463" key="NewPhpFileDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1594821891998" />
     <state x="430" y="185" key="SettingsEditor" timestamp="1594703244925">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>

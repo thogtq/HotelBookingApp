@@ -11,7 +11,7 @@ if(empty($userToken)){
     die(json_encode($data));
 }
 $userId = get_user($userToken,$conn)["MA_NGUOI_DUNG"];
-$result = $conn->query("SELECT p.ma_phong,ks.ten_ks,p.ten_phong,DATE_FORMAT(dp.ngay_den,'%d/%m/%Y') as ngay_den,DATE_FORMAT(dp.ngay_di,'%d/%m/%Y') as ngay_di,dp.tong_tien,p.gia_phong
+$result = $conn->query("SELECT dp.ma_dat_phong,p.ma_phong,ks.ten_ks,p.ten_phong,DATE_FORMAT(dp.ngay_den,'%d/%m/%Y') as ngay_den,DATE_FORMAT(dp.ngay_di,'%d/%m/%Y') as ngay_di,dp.tong_tien,p.gia_phong
 FROM dat_phong dp 
 INNER JOIN phong p ON dp.ma_phong = p.ma_phong
 INNER JOIN khach_san ks ON ks.ma_khach_san = p.ma_khach_san

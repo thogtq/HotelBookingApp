@@ -17,7 +17,7 @@ public class Hotel {
     private String Gia;
     private int Hinh;
     private String urlHinh;
-    private String TongGia,ngayDen,ngayDi;
+    private String TongGia,ngayDen,ngayDi,maDp;
     public Hotel(String maPhong, String ten, String ngayDen, String ngayDi, String Gia , String TongGia) {
         this.maPhong = maPhong;
         Ten = ten;
@@ -96,4 +96,6 @@ public class Hotel {
     public String getNgayDi (){
         return this.ngayDi;
     }
+    public String getMaDp (){return  this.maDp;}
+    public void setMaDp (String maDp){ this.maDp = maDp;}
 }

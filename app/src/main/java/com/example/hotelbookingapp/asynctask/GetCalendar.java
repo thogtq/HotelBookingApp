@@ -102,6 +102,7 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
                                 row.getString("ngay_den"),
                                 row.getString("ngay_di"),
                                 myFormat.format(row.getInt("gia_phong")),myFormat.format(row.getInt("tong_tien")) );
+                        temp.setMaDp(row.getString("ma_dat_phong"));
                         arrHotel.add(temp);
                     }
                     //End loop
@@ -137,7 +138,14 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
                 listViewHotel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Hotel temp = arrHotel.get(position);
                         Intent cancelActivity = new Intent(context, CancelActivity.class);
+                        cancelActivity.putExtra("maDp",temp.getMaDp());
+                        cancelActivity.putExtra("ngayDen",temp.getNgayDen());
+                        cancelActivity.putExtra("ngayDi",temp.getNgayDi());
+                        cancelActivity.putExtra("tenKs",temp.getTen());
+                        cancelActivity.putExtra("donGia",temp.getGia());
+                        cancelActivity.putExtra("tongTien",temp.getTongGia());
                         context.startActivity(cancelActivity);
                     }
                 });

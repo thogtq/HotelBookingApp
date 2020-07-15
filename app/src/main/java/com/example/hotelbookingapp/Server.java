@@ -35,6 +35,7 @@ final public class Server {
     public static final String getRoom = ServerName+"api.php/?apicall=get_room";
     public static final String bookHotel = ServerName+"api.php/?apicall=book_hotel";
     public static final String getCalendar = ServerName+"api.php/?apicall=get_calendar";
+    public static final String cancelBooking = ServerName+"api.php/?apicall=cancel_booking";
     public static String sendHttpRequest(String requestURL, HashMap<String, String> postDataParams,String method){
         RequestHandler request = new RequestHandler();
         return request.sendHttpRequest(requestURL,postDataParams,method);

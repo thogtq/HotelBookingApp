@@ -22,4 +22,7 @@ switch ($request){
         case 'get_calendar';
         include "get_calendar.php";
         break;
+    case 'cancel_booking':
+        include "cancel_booking.php";
+        break;
 }
