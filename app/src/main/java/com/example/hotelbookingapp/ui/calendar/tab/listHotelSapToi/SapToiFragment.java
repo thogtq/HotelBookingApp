@@ -32,13 +32,6 @@ public class SapToiFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_calendar_sap_toi,container,false);
         listViewHotel = root.findViewById(R.id.listViewHotelSapToi);
         new GetCalendar(getContext(),adapter,listViewHotel).execute("pending");
-        listViewHotel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent cancelActivity = new Intent(getContext(), CancelActivity.class);
-                startActivity(cancelActivity);
-            }
-        });
         return root;
     }
 }
