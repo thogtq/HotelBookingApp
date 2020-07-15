@@ -7,7 +7,20 @@
     android:background="@drawable/background"
     tools:context=".ui.account.AccountFragment" >
 
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="68dp"
+        android:layout_height="58dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
+
     <FrameLayout
+        android:id="@+id/frameLayout3"
         android:layout_width="369dp"
         android:layout_height="471dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,6 +48,23 @@
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView19"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/et_account_diachi"
+                android:layout_width="290dp"
+                android:layout_height="27.5dp"
+                android:background="@android:drawable/toast_frame"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView20"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
@@ -72,12 +102,12 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:id="@+id/et_account_username"
+                android:id="@+id/et_account_CMND"
                 android:layout_width="290dp"
                 android:layout_height="27.5dp"
                 android:background="@android:drawable/toast_frame"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="CMND"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
@@ -141,7 +171,7 @@
                 android:layout_height="27.5dp"
                 android:layout_marginStart="20dp"
                 android:gravity="center"
-                android:text="Username"
+                android:text="CMND"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_account_hoten"
@@ -157,7 +187,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.062"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_account_username"
+                app:layout_constraintTop_toBottomOf="@+id/et_account_CMND"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
@@ -198,6 +228,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_account_gioitinh"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="27.5dp"
+                android:text="Địa chỉ"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.064"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_account_ngaysinh"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin khách hàng"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
