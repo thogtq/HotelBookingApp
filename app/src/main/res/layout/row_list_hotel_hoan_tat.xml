@@ -6,7 +6,7 @@
     android:layout_height="500dp"
     android:layout_marginLeft="2.5dp"
     android:layout_marginRight="2.5dp"
-    android:background="@android:drawable/toast_frame">
+    android:background="@drawable/list_frame">
 
     <ImageView
         android:id="@+id/imageViewHinhListHotelHoanTat"
