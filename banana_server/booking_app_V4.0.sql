@@ -60,7 +60,8 @@ create table DAT_PHONG
    MA_DAT_PHONG         varchar(12) not null,
    MA_NGUOI_DUNG        int not null,
    MA_PHONG             varchar(12),
-   primary key (MA_DAT_PHONG)
+   id                   int not null AUTO_INCREMENT,
+   primary key (id)
 );
 
 /*==============================================================*/
@@ -175,8 +176,8 @@ INSERT INTO `dat_phong` (`NGAY_DAT`, `NGAY_DEN`, `NGAY_DI`, `TONG_TIEN`, `TINH_T
 -- co_so_phong
 INSERT INTO `co_so_phong` (`TEN_CO_SO`, `MA_CO_SO`) VALUES ('Điện thoại', 'CS0001'), ('Wifi', 'CS0002'), ('TV', 'CS0003'), ('Két sắt', 'CS0004'), ('Điều hoà', 'CS0010'), ('Tủ lạnh', 'CS0005'), ('Mấy sấy tóc', 'CS0006'), ('Bàn làm việc', 'CS0007'), ('Tủ quần áo', 'CS0008'), ('Ban công', 'CS0009');
 -- ct_phong
-INSERT INTO `ct_phong` (`MA_PHONG`, `MA_CO_SO`, `DON_VI`) VALUES 
-('R000001', 'CS0001', NULL),
+INSERT INTO `ct_phong` (`MA_PHONG`, `MA_CO_SO`, `DON_VI`) 
+VALUES ('R000001', 'CS0001', NULL),
 ('R000001', 'CS0002', NULL),
 ('R000001', 'CS0003', NULL),
 ('R000001', 'CS0004', NULL),
