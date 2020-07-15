@@ -13,6 +13,7 @@ import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.Server;
 import com.example.hotelbookingapp.activity.BookingActivity;
 import com.example.hotelbookingapp.listHotel.Hotel;
+import com.example.hotelbookingapp.ui.calendar.tab.listHotelDaHuy.ListHotelDaHuyAdapter;
 import com.example.hotelbookingapp.ui.calendar.tab.listHotelHoanTat.ListHotelHoanTatAdapter;
 import com.example.hotelbookingapp.ui.calendar.tab.listHotelSapToi.ListHotelSapToiAdapter;
 
@@ -36,9 +37,11 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
 
     ListHotelHoanTatAdapter adapterDone;
     ListHotelSapToiAdapter adapterPending;
+    ListHotelDaHuyAdapter adapterCanceled;
+
     ListView listViewHotel;
     ArrayList<Hotel> arrHotel;
-
+    //Constructor List Pending
     public GetCalendar(Context context,ListHotelSapToiAdapter adapterPending,ListView listViewHotel){
         this.activity = (Activity) context;
         this.context = context;
@@ -47,6 +50,7 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
         this.listViewHotel = listViewHotel;
         this.adapterPending = adapterPending;
     }
+    //Constructor List Done
     public GetCalendar(Context context, ListHotelHoanTatAdapter adapterDone, ListView listViewHotel){
         this.activity = (Activity) context;
         this.context = context;
@@ -54,6 +58,15 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
         this.message="empty";
         this.listViewHotel = listViewHotel;
         this.adapterDone = adapterDone;
+    }
+    //Constructor List Canceled
+    public GetCalendar(Context context, ListHotelDaHuyAdapter adapterCanceled, ListView listViewHotel){
+        this.activity = (Activity) context;
+        this.context = context;
+        this.result = 0;
+        this.message="empty";
+        this.listViewHotel = listViewHotel;
+        this.adapterCanceled = adapterCanceled;
     }
 
     @Override
@@ -122,7 +135,8 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
                 adapterDone =new ListHotelHoanTatAdapter(this.context, R.layout.row_list_hotel_hoan_tat, this.arrHotel);
                 listViewHotel.setAdapter(adapterDone);
             }else if(this.status.equals("canceled")){
-
+                adapterCanceled =new ListHotelDaHuyAdapter(this.context, R.layout.row_list_hotel_da_huy, this.arrHotel);
+                listViewHotel.setAdapter(adapterCanceled);
             }
 
         }
