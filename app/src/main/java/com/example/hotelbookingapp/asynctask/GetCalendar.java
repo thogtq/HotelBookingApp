@@ -7,11 +7,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.hotelbookingapp.R;
 import com.example.hotelbookingapp.Server;
 import com.example.hotelbookingapp.activity.BookingActivity;
+import com.example.hotelbookingapp.activity.CancelActivity;
 import com.example.hotelbookingapp.listHotel.Hotel;
 import com.example.hotelbookingapp.ui.calendar.tab.listHotelDaHuy.ListHotelDaHuyAdapter;
 import com.example.hotelbookingapp.ui.calendar.tab.listHotelHoanTat.ListHotelHoanTatAdapter;
@@ -131,6 +134,13 @@ public class GetCalendar extends AsyncTask<String,Long,Void> {
             if(this.status.equals("pending")){
                 adapterPending =new ListHotelSapToiAdapter(this.context, R.layout.row_list_hotel_sap_toi, this.arrHotel);
                 listViewHotel.setAdapter(adapterPending);
+                listViewHotel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent cancelActivity = new Intent(context, CancelActivity.class);
+                        context.startActivity(cancelActivity);
+                    }
+                });
             }else if(this.status.equals("done")){
                 adapterDone =new ListHotelHoanTatAdapter(this.context, R.layout.row_list_hotel_hoan_tat, this.arrHotel);
                 listViewHotel.setAdapter(adapterDone);
