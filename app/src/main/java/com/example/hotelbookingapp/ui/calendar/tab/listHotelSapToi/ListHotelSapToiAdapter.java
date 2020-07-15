@@ -1,5 +1,6 @@
 package com.example.hotelbookingapp.ui.calendar.tab.listHotelSapToi;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hotelbookingapp.R;
+import com.example.hotelbookingapp.asynctask.DownloadImageTask;
 import com.example.hotelbookingapp.listHotel.Hotel;
 
 import java.util.List;
@@ -46,6 +48,7 @@ public class ListHotelSapToiAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -62,9 +65,9 @@ public class ListHotelSapToiAdapter extends BaseAdapter {
         Hotel hotel= hotelList.get(position);
 
         txtTen.setText(hotel.getTen());
-        txtMoTa.setText(hotel.getMota());
-        txtThanhTien.setText(hotel.getGia());
-        imgHinh.setImageResource(hotel.getHinh());
+        txtMoTa.setText("Từ "+hotel.getNgayDen()+" đến "+hotel.getNgayDi());
+        txtThanhTien.setText(hotel.getTongGia());
+        new DownloadImageTask(imgHinh).execute(hotel.getUrlHinh());
 
         return convertView;
     }

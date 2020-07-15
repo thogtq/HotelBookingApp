@@ -1,11 +1,9 @@
 package com.example.hotelbookingapp.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,13 +30,13 @@ public class ConfirmActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
-        etHoten = (EditText)findViewById(R.id.editTextTenKhachHangConfirm) ;
-        etSdt = (EditText)findViewById(R.id.editTextSdtConfirm) ;
-        etStartDate = (EditText)findViewById(R.id.editTextDateInConfirm) ;
-        etEndDate = (EditText)findViewById(R.id.editTextDateOutConfirm) ;
-        etTongTien = (EditText)findViewById(R.id.editTextThanhTienConfirm) ;
-        etDonGia = (EditText)findViewById(R.id.editTextDonGiaConfirm) ;
-        etName = (EditText)findViewById(R.id.editTextTenHotelConfirm) ;
+        etHoten = (EditText)findViewById(R.id.editTextTenKhachHangCancel) ;
+        etSdt = (EditText)findViewById(R.id.editTextSdtCancel) ;
+        etStartDate = (EditText)findViewById(R.id.editTextDateInCancel) ;
+        etEndDate = (EditText)findViewById(R.id.editTextDateOutCancel) ;
+        etTongTien = (EditText)findViewById(R.id.editTextThanhTienCancel) ;
+        etDonGia = (EditText)findViewById(R.id.editTextDonGiaCancel) ;
+        etName = (EditText)findViewById(R.id.editTextTenHotelCancel) ;
         df = new SimpleDateFormat("dd/MM/yyyy");
         Bundle extras = getIntent().getExtras();
         myFormat.setGroupingUsed(true);
@@ -55,7 +53,7 @@ public class ConfirmActivity extends AppCompatActivity {
            }catch (Exception e){}
 
         }
-        Button buttonConfirm = (Button)findViewById(R.id.buttonConfirm);
+        Button buttonConfirm = (Button)findViewById(R.id.buttonCancel);
 
         etHoten.setText(Server.userName);
         etSdt.setText(Server.userPhone);

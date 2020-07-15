@@ -19,4 +19,7 @@ switch ($request){
     case 'book_hotel':
         include "book_hotel.php";
         break;
+        case 'get_calendar';
+        include "get_calendar.php";
+        break;
 }
