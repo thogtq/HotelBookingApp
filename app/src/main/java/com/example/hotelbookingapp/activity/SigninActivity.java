@@ -22,7 +22,7 @@ public class SigninActivity extends AppCompatActivity {
         forgetPasswordText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent activity_signup=new Intent(SigninActivity.this, SignupActivity.class);
+                Intent activity_signup=new Intent(SigninActivity.this, ForgotPasswordActivity.class);
                 startActivity(activity_signup);
                 //finish();
             }
