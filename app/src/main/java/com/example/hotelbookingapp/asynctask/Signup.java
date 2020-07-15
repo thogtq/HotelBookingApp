@@ -65,8 +65,8 @@ public class Signup extends AsyncTask<String,Long,Void> {
                     data_login.put("password",params[4]);
                     JSONObject resob =new JSONObject(Server.sendHttpRequest(Server.Login, data_login, "POST"));
                     Server.userToken = resob.getString("token");
-                    Server.userName = arrRes.getJSONObject("user_data").getString("HO_TEN");
-                    Server.userPhone = arrRes.getJSONObject("user_data").getString("SDT");
+                    Server.userName = resob.getJSONObject("user_data").getString("HO_TEN");
+                    Server.userPhone = resob.getJSONObject("user_data").getString("SDT");
                 }else{
                     this.result = 0;
                     this.message = arrRes.getString("message");
