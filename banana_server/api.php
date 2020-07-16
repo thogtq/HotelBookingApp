@@ -25,4 +25,10 @@ switch ($request){
     case 'cancel_booking':
         include "cancel_booking.php";
         break;
+    case 'update_info':
+        include "update_info.php";
+        break;
+    case 'update_password':
+        include "update_password.php";
+        break;
 }

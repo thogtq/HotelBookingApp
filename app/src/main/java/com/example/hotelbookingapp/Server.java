@@ -27,7 +27,13 @@ final public class Server {
     //public static final String ServerName = "http://192.168.1.18/";
     public static String userName ="";
     public static String userPhone = "";
-    public static final String ServerName = "http://192.168.2.5/";
+    public static String userCmnd = "";
+    public static String userAddress = "";
+    public static String userSex = "";
+    public static String userEmail = "";
+    public static String userBrith = "";
+
+    public static final String ServerName = "http://192.168.1.4/";
     public static final String Login = ServerName+"api.php/?apicall=login";
     public static final String Register = ServerName+"api.php/?apicall=register";
     public static final String searchHotel = ServerName+"api.php/?apicall=search_hotel";
@@ -36,6 +42,8 @@ final public class Server {
     public static final String bookHotel = ServerName+"api.php/?apicall=book_hotel";
     public static final String getCalendar = ServerName+"api.php/?apicall=get_calendar";
     public static final String cancelBooking = ServerName+"api.php/?apicall=cancel_booking";
+    public static final String updateInfo = ServerName+"api.php/?apicall=update_info";
+    public static final String updatePassword = ServerName+"api.php/?apicall=update_password";
     public static String sendHttpRequest(String requestURL, HashMap<String, String> postDataParams,String method){
         RequestHandler request = new RequestHandler();
         return request.sendHttpRequest(requestURL,postDataParams,method);

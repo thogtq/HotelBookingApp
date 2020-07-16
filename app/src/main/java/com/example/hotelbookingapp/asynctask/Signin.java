@@ -47,6 +47,11 @@ public class Signin extends AsyncTask<String,Long,Void> {
                     Server.userToken = arrRes.getString("token");
                     Server.userName = arrRes.getJSONObject("user_data").getString("HO_TEN");
                     Server.userPhone = arrRes.getJSONObject("user_data").getString("SDT");
+                    Server.userEmail = arrRes.getJSONObject("user_data").getString("EMAIL");
+                    Server.userSex = arrRes.getJSONObject("user_data").getString("GIOI_TINH");
+                    Server.userAddress = arrRes.getJSONObject("user_data").getString("DIA_CHI");
+                    Server.userCmnd = arrRes.getJSONObject("user_data").getString("CMND");
+                    Server.userBrith = arrRes.getJSONObject("user_data").getString("NGAY_SINH");
                 }else{
                     this.result = 0;
                 }
